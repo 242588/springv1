@@ -1,0 +1,25 @@
+<div class="container mt-4">
+    <h3>Modifier le Technicien</h3>
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <input id="nom" class="form-control" [(ngModel)]="technicien.nom" name="nom" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="competences" class="form-label">Compétences</label>
+        <input id="competences" class="form-control" [(ngModel)]="technicien.competences" name="competences" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="machineAssignee" class="form-label">Machine Assignée</label>
+        <select id="machineAssignee" class="form-select" [(ngModel)]="technicien.machineAssignee.id" name="machineAssignee" required>
+          <option *ngFor="let machine of machines" [value]="machine.id">{{ machine.nom }}</option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-success">Enregistrer</button>
+      <button type="button" class="btn btn-secondary ms-2" routerLink="/maps">Annuler</button>
+    </form>
+  </div>
+  

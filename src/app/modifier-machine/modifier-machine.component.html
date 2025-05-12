@@ -1,0 +1,20 @@
+<div class="container mt-4">
+    <h2>Modifier la Machine</h2>
+    <form [formGroup]="machineForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label>Nom</label>
+        <input type="text" class="form-control" formControlName="nom" />
+      </div>
+      <div class="mb-3">
+        <label>État</label>
+        <input type="text" class="form-control" formControlName="etat" />
+      </div>
+      <div class="mb-3">
+        <label>Maintenance Prochaine</label>
+        <input type="date" class="form-control" formControlName="maintenanceProchaine" />
+      </div>
+      <button type="submit" class="btn btn-primary">Modifier</button>
+      <button class="btn btn-secondary ms-2" (click)="router.navigate(['/icons'])">Annuler</button>
+    </form>
+  </div>
+  

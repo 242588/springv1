@@ -1,0 +1,47 @@
+<div class="container mt-4">
+
+  
+    <h3 class="text-center">Statistiques des ordres</h3>
+    <div class="row">
+      <div class="col-md-4">
+        <h4>Ordres Terminés</h4>
+        <p>{{ getTauxTermine() }}%</p>
+      </div>
+      <div class="col-md-4">
+        <h4>Ordres En Cours</h4>
+        <p>{{ getTauxEnCours() }}%</p>
+      </div>
+      <div class="col-md-4">
+        <h4>Ordres Annulés</h4>
+        <p>{{ getTauxAnnule() }}%</p>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-4">
+    <h3 class="text-center">Quantité Totale par Produit</h3>
+    <table class="table table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>Produit</th>
+          <th>Quantité Totale</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let produit of produits">
+          <td>{{ produit.nom }}</td>
+          <td>{{ calculerQuantiteTotaleParProduit()[produit.nom] || 0 }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="mb-4">
+    <h4>Nombre d'ordres par machine :</h4>
+    <ul>
+      <!-- Parcourir les clés et valeurs du dictionnaire ordresParMachine -->
+      <li *ngFor="let machine of ordresParMachine | keyvalue">
+        {{ machine.key }} : {{ machine.value }} ordres
+      </li>
+    </ul>
+  </div>
+  
+  

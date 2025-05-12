@@ -1,0 +1,40 @@
+<div class="container mt-4">
+    <h2>Modifier un Ordre de Fabrication</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="produit" class="form-label">Produit</label>
+        <input type="text" class="form-control" id="produit" [(ngModel)]="ordre.produit" name="produit" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="quantite" class="form-label">Quantité</label>
+        <input type="number" class="form-control" id="quantite" [(ngModel)]="ordre.quantite" name="quantite" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="date" class="form-label">Date</label>
+        <input type="date" class="form-control" id="date" [(ngModel)]="ordre.date" name="date" required>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Machine</label>
+        <select class="form-select" [(ngModel)]="ordre.machine" name="machine" required>
+          <option *ngFor="let m of machines" [value]="m.id">{{ m.nom }}</option>
+        </select>
+      </div>
+      
+  
+      <div class="mb-3">
+        <label for="statut" class="form-label">Statut</label>
+        <select class="form-select" [(ngModel)]="ordre.statut" name="statut" required>
+          <option value="EN_COURS">En cours</option>
+          <option value="TERMINE">Terminé</option>
+          <option value="ANNULE">Annulé</option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Enregistrer</button>
+      <button type="button" class="btn btn-secondary ms-2" (click)="annuler()">Annuler</button>
+    </form>
+  </div>
+  

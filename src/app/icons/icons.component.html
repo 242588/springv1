@@ -1,0 +1,39 @@
+<div class="container mt-4">
+    <h2>Liste des Machines</h2>
+    <div class="mb-3 text-end">
+      <button class="btn btn-success" [routerLink]="['/machines/ajouter']">
+        Ajouter une machine
+      </button>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>État</th>
+          <th>Maintenance Prochaine</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let machine of machines">
+          <td>{{ machine.nom }}</td>
+          <td>{{ machine['état'] }}</td> <!-- avec les crochets car le nom du champ a un accent -->
+          <td>{{ machine.maintenanceProchaine | date: 'shortDate' }}</td>
+          <td>
+            <button class="btn btn-primary btn-sm me-2"
+                  [routerLink]="['/machines/modifier', machine.id]">
+            Modifier
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="supprimerMachine(machine.id)">
+              Supprimer
+            </button>
+                      </td>
+          <div *ngIf="successMessage" class="alert alert-success">
+            {{ successMessage }}
+          </div>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

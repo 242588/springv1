@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <h2>Connexion</h2>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-control"
+          [(ngModel)]="email"
+          required />
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="form-control"
+          [(ngModel)]="password"
+          required />
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+        {{ isLoading ? 'Connexion...' : 'Se connecter' }}
+      </button>
+  
+      <div *ngIf="errorMessage" class="alert alert-danger mt-2">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </div>
+  

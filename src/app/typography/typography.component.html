@@ -1,0 +1,54 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Liste des ordres de fabrication</h2>
+
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Produit</th>
+        <th>Quantité</th>
+        <th>Date</th>
+        <th>Machine</th>
+        <th>Statut</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr *ngFor="let ordre of ordres">
+        
+        <td>{{ ordre.id }}</td>
+        <td>{{ ordre.produit.nom }}</td>
+        <td>{{ ordre.quantite }}</td>
+        <td>{{ ordre.date }}</td>
+        <td>{{ ordre.machine.nom }}</td>
+        <td>
+          <span class="badge" [ngClass]="{
+            'bg-success': ordre.statut === 'Terminé',
+            'bg-warning': ordre.statut === 'En cours',
+            'bg-danger': ordre.statut === 'Annulé'
+          }">
+            {{ ordre.statut }}
+          </span>
+        </td>
+        <td>
+          <a [routerLink]="['/modifier-ordre', ordre.id]" class="btn btn-primary btn-sm me-2">
+            Modifier
+          </a>
+          
+          
+          <button class="btn btn-danger btn-sm" (click)="deleteOrdre(ordre.id)">Supprimer</button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Bouton Ajouter en bas du tableau -->
+  <div class="text-center mt-3"> 
+    <button class="btn btn-success" routerLink="/ajouter-ordre">
+      Ajouter un Ordre
+    </button>
+  </div>
+  
+</div>

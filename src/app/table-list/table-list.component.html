@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <h2 class="text-center">Liste des Produits</h2>
+  <table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Type</th>
+        <th>Stock</th>
+        <th>Fournisseur</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produit of produits">
+        <td>{{ produit.id }}</td>
+        <td>{{ produit.nom }}</td>
+        <td>{{ produit.type }}</td>
+        <td>{{ produit.stock }}</td>
+        <td>{{ produit.fournisseur }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm"
+        [routerLink]="['/modifier-produit', produit.id]">
+  Modifier
+</button>
+         <button class="btn btn-danger btn-sm"
+          (click)="supprimerProduit(produit.id)">
+    Supprimer
+  </button>        </td>
+
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="text-end mb-3">
+    <button class="btn btn-success" routerLink="/ajouter-produit">Ajouter un Produit</button>
+  </div>
+  
+  
+</div>

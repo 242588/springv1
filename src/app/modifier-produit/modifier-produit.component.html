@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <h2>Modifier le Produit</h2>
+  
+    <form (ngSubmit)="modifierProduit()">
+      <div class="mb-3">
+        <label>Nom :</label>
+        <input class="form-control" [(ngModel)]="produit.nom" name="nom" required />
+      </div>
+  
+      <div class="mb-3">
+        <label>Type :</label>
+        <input class="form-control" [(ngModel)]="produit.type" name="type" required />
+      </div>
+  
+      <div class="mb-3">
+        <label>Stock :</label>
+        <input type="number" class="form-control" [(ngModel)]="produit.stock" name="stock" required />
+      </div>
+  
+      <div class="mb-3">
+        <label>Fournisseur :</label>
+        <input class="form-control" [(ngModel)]="produit.fournisseur" name="fournisseur" required />
+      </div>
+  
+      <button type="submit" class="btn btn-success">Modifier</button>
+      <button type="button" class="btn btn-secondary ms-2" routerLink="/table-list">Annuler</button>
+    </form>
+  </div>
+  

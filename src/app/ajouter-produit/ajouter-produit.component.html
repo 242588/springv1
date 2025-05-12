@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Ajouter un Produit</h2>
+  
+    <form (ngSubmit)="ajouterProduit()" #produitForm="ngForm">
+      <div class="mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <input type="text" class="form-control" id="nom" required [(ngModel)]="produit.nom" name="nom">
+      </div>
+  
+      <div class="mb-3">
+        <label for="type" class="form-label">Type</label>
+        <input type="text" class="form-control" id="type" required [(ngModel)]="produit.type" name="type">
+      </div>
+  
+      <div class="mb-3">
+        <label for="stock" class="form-label">Stock</label>
+        <input type="number" class="form-control" id="stock" required [(ngModel)]="produit.stock" name="stock">
+      </div>
+  
+      <div class="mb-3">
+        <label for="fournisseur" class="form-label">Fournisseur</label>
+        <input type="text" class="form-control" id="fournisseur" required [(ngModel)]="produit.fournisseur" name="fournisseur">
+      </div>
+  
+      <button type="submit" class="btn btn-success">Ajouter</button>
+      <button type="button" class="btn btn-secondary ms-2" routerLink="/table-list">Annuler</button>
+    </form>
+  </div>
+  

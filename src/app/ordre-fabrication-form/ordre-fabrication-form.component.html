@@ -1,0 +1,42 @@
+<div class="container mt-4">
+  <h2>Ajouter un Ordre de Fabrication1</h2>
+  <form (submit)="onSubmit()">
+    <div class="mb-3">
+      <label class="form-label">Produit</label>
+      <select class="form-select" [(ngModel)]="ordre.produit" name="produit" required>
+        <option value="" disabled selected>Choisir un produit</option>
+        <option *ngFor="let p of produits" [value]="p.id">{{ p.nom }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Quantité</label>
+      <input class="form-control" type="number" [(ngModel)]="ordre.quantite" name="quantite" required />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Date</label>
+      <input class="form-control" type="date" [(ngModel)]="ordre.date" name="date" required />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Machine</label>
+      <select class="form-select" [(ngModel)]="ordre.machine" name="machine" required>
+        <option *ngFor="let m of machines" [value]="m.id">{{ m.nom }}</option>
+      </select>
+    </div>
+    
+
+    <div class="mb-3">
+      <label for="statut" class="form-label">Statut</label>
+      <select class="form-select" [(ngModel)]="ordre.statut" name="statut" required>
+        <option value="En cours">En cours</option>
+        <option value="Terminé">Terminé</option>
+        <option value="Annulé">Annulé</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <button type="button" class="btn btn-secondary ms-2" routerLink="/table-list">Annuler</button>
+  </form>
+</div>
